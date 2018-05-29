@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Task;
 class TasksController extends Controller
 {
     /**
@@ -13,10 +13,10 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $task = Task::all();
 
         return view('tasks.index', [
-            'test' => $tasks,
+           "tasks" => $task,
         ]);
     }
 
@@ -27,10 +27,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        $mtask = new Task;
+        $tasks = new Task;
 
-        return view('messages.create', [
-            'task' => $task,
+        return view('tasks.create', [
+            'task' => $tasks,
         ]);
     }
 
@@ -42,12 +42,17 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'content' => 'required|max:191',
+        ]);
+
         $task = new Task;
         $task->content = $request->content;
         $task->save();
 
         return redirect('/');
     }
+
 
     /**
      * Display the specified resource.
@@ -60,7 +65,7 @@ class TasksController extends Controller
         $task = Task::find($id);
 
         return view('tasks.show', [
-            'task' => $task,
+            'tasks' => $task,
         ]);
     }
 
@@ -75,7 +80,7 @@ class TasksController extends Controller
         $task = Task::find($id);
 
         return view('tasks.edit', [
-            'task' => $task,
+            'tasks' => $task,
         ]);
     }
     /**
