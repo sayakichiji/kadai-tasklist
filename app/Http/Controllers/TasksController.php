@@ -27,10 +27,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        $tasks = new Task;
+        $task = new Task;
 
         return view('tasks.create', [
-            'task' => $tasks,
+            'tasks' => $task,
         ]);
     }
 
@@ -43,12 +43,12 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-             'title' => 'required|max:191',  
+            
             'content' => 'required|max:191',
         ]);
 
         $task = new Task;
-        $message->title = $request->title;  
+         
         $task->content = $request->content;
         $task->save();
 
@@ -95,11 +95,11 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
                 $this->validate($request, [
-                     'title' => 'required|max:191',   
+                       
             'content' => 'required|max:191',
         ]);
         $task = Task::find($id);
-        $message->title = $request->title;  
+        
         $task->content = $request->content;
         $task->save();
 

@@ -10,10 +10,9 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::model($task, ['route' => 'tasks.store']) !!}
+    {!! Form::model($tasks, ['route' => 'tasks.store']) !!}
 
-        {!! Form::label('title', 'タスク:') !!}
-        {!! Form::text('title') !!}
+
 
         {!! Form::label('content', 'タスク:') !!}
         {!! Form::text('content') !!}
