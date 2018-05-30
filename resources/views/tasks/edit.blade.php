@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>id: {{ $task->id }} のタスク編集ページ</h1>
+    <h1>id: {{ $tasks->id }} のタスク編集ページ</h1>
     @if (count($errors) > 0)
         <ul>
             @foreach ($errors->all() as $error)
@@ -11,7 +11,7 @@
         </ul>
     @endif
     
-    {!! Form::model($task, ['route' => ['task.update', $task->id], 'method' => 'put']) !!}
+    {!! Form::model($tasks, ['route' => ['tasks.update', $tasks->id], 'method' => 'put']) !!}
 
         
         {!! Form::label('content', 'タスク:') !!}
