@@ -12,9 +12,11 @@
     @endif
     {!! Form::model($task, ['route' => 'tasks.store']) !!}
 
+        {!! Form::label('title', 'タスク:') !!}
+        {!! Form::text('title') !!}
+
         {!! Form::label('content', 'タスク:') !!}
         {!! Form::text('content') !!}
-
         {!! Form::submit('投稿') !!}
 
     {!! Form::close() !!}
