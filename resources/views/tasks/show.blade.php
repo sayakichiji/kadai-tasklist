@@ -12,7 +12,7 @@
             </tr>
           <tr>
             <th>タスク</th>
-            <td>{{ $task->content }}</td>
+            <td>{{ $tasks->content }}</td>
         </tr>
     </table>
 
